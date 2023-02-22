@@ -40,10 +40,11 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
+function kopyala(marketteNeVarsa){
   /*kod buraya*/
+    let orijinalTatlarkopya =[...marketteNeVarsa];
+    return orijinalTatlarkopya;
 }
-
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -56,9 +57,18 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
+function dizi25Cesitmi(orijinalTatlar){
   /*kod buraya*/
+  let dizi25Cesit = orijinalTatlar.length ;
+  let dogru = true;
+  let yanlıs = false;
+  if (dizi25Cesit === 25) {
+    return dogru;
+  } else {
+    return yanlıs;
+  }
 }
+
 
 
 /* Görev 3:
@@ -74,11 +84,15 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
+function cesitEkle(tatlar) {
+  let ekle1 = 'Kakule';
+  tatlar.unshift(ekle1);
+  return tatlar;
   /*kod buraya*/
+  
 }
-
-
+   console.log(cesitEkle(orijinalTatlar));
+   
 /* Cörev 4:
 
 Hoooppppalaa! orijinalTatlar dizisinde artık 26 aroma var! Göreviniz, dizinin sonundan bir öğeyi kaldırmaktır.
@@ -92,8 +106,10 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
+function sonCesitiKaldir(tatlar){
   /*kod buraya*/
+  tatlar.pop();
+  return tatlar; 
 }
 
 
@@ -108,9 +124,12 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
+function indekstekiCesitiGetir(tatlar,sayi2){
+  let ceşit = tatlar[sayi2];
+  return (ceşit);
   /*kod buraya*/
 }
+  indekstekiCesitiGetir(orijinalTatlar,6);
 
 
 /* Görev 6:
@@ -128,10 +147,14 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
+function ismeGoreCesitCikar(tatlar, lezzet) {
+  let kaldır = tatlar.indexOf(lezzet);
+  tatlar.splice(kaldır,1)
+  return (tatlar);
+  
   /*kod buraya*/
 }
-
+ismeGoreCesitCikar(orijinalTatlar,"Misket Limon");
 
 /* Görev 7:
 
@@ -153,11 +176,24 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
   Bu sorunu çözmek için GELİŞMİŞ DİZİ YÖNTEMLERİNİ (yani .filter) KULLANMAYIN.
 */
 
+    
 
-function ismeGoreFiltrele(/*kod buraya*/){
+function ismeGoreFiltrele(malzemelerDizisi, filtrelenecek){
   /*kod buraya*/
-}
+   let sepet = []
+   for (let i = 0; i<malzemelerDizisi.length;i++) {
+   let elimdekiAbur = malzemelerDizisi[i];
+   if (elimdekiAbur.includes(filtrelenecek)) {
+    sepet.push(malzemelerDizisi[i]);
+  return sepet;
+   }
+  
+  }
+   console.log ("sepet", sepet);
+   return sepet;
 
+  }
+ ismeGoreFiltrele(orijinalTatlar,"Çikolata");
 
 
 /* ALIŞTIRMA */
@@ -172,9 +208,13 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
 
-function ortalamaKelimeSayisi(/*kod buraya*/){
+function ortalamaKelimeSayisi(){
+  
+  }
+  
+  
   /*kod buraya*/
-}
+
 
 
 /* ALIŞTIRMA 2:
