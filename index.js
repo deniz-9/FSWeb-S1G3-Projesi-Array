@@ -39,11 +39,11 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
    2. Alınan dizinin bir kopyasını döndür
 */
 
-
-function kopyala(marketteNeVarsa){
+// spread operatör
+function kopyala(marketteNeVarsa) {
   /*kod buraya*/
-    let orijinalTatlarkopya =[...marketteNeVarsa];
-    return orijinalTatlarkopya;
+  let orijinalTatlarkopya = [...marketteNeVarsa];
+  return orijinalTatlarkopya;
 }
 
 /* Görev 2:
@@ -57,9 +57,9 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(orijinalTatlar){
+function dizi25Cesitmi(orijinalTatlar) {
   /*kod buraya*/
-  let dizi25Cesit = orijinalTatlar.length ;
+  let dizi25Cesit = orijinalTatlar.length;
   let dogru = true;
   let yanlıs = false;
   if (dizi25Cesit === 25) {
@@ -89,10 +89,10 @@ function cesitEkle(tatlar) {
   tatlar.unshift(ekle1);
   return tatlar;
   /*kod buraya*/
-  
+
 }
-   console.log(cesitEkle(orijinalTatlar));
-   
+console.log(cesitEkle(orijinalTatlar));
+
 /* Cörev 4:
 
 Hoooppppalaa! orijinalTatlar dizisinde artık 26 aroma var! Göreviniz, dizinin sonundan bir öğeyi kaldırmaktır.
@@ -106,10 +106,10 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(tatlar){
+function sonCesitiKaldir(tatlar) {
   /*kod buraya*/
   tatlar.pop();
-  return tatlar; 
+  return tatlar;
 }
 
 
@@ -124,12 +124,12 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(tatlar,sayi2){
+function indekstekiCesitiGetir(tatlar, sayi2) {
   let ceşit = tatlar[sayi2];
   return (ceşit);
   /*kod buraya*/
 }
-  indekstekiCesitiGetir(orijinalTatlar,6);
+indekstekiCesitiGetir(orijinalTatlar, 6);
 
 
 /* Görev 6:
@@ -149,12 +149,12 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
 
 function ismeGoreCesitCikar(tatlar, lezzet) {
   let kaldır = tatlar.indexOf(lezzet);
-  tatlar.splice(kaldır,1)
+  tatlar.splice(kaldır, 1)
   return (tatlar);
-  
+
   /*kod buraya*/
 }
-ismeGoreCesitCikar(orijinalTatlar,"Misket Limon");
+ismeGoreCesitCikar(orijinalTatlar, "Misket Limon");
 
 /* Görev 7:
 
@@ -176,61 +176,77 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
   Bu sorunu çözmek için GELİŞMİŞ DİZİ YÖNTEMLERİNİ (yani .filter) KULLANMAYIN.
 */
 
-    
 
-function ismeGoreFiltrele(malzemelerDizisi, filtrelenecek){
+
+function ismeGoreFiltrele(arr, searchText) {
   /*kod buraya*/
-   let sepet = []
-   for (let i = 0; i<malzemelerDizisi.length;i++) {
-   let elimdekiAbur = malzemelerDizisi[i];
-   if (elimdekiAbur.includes(filtrelenecek)) {
-    sepet.push(malzemelerDizisi[i]);
-  return sepet;
-   }
-  
-  }
-   console.log ("sepet", sepet);
-   return sepet;
+  const yeniDizi = [];
+  for (let i = 0; i < arr.length ; i++) {
+    const index = arr[i].indexOf(searchText);
 
+    if (index != -1) {
+      yeniDizi.push(arr[i]);
+    }
   }
- ismeGoreFiltrele(orijinalTatlar,"Çikolata");
+  return yeniDizi;
+}
+
+
+ismeGoreFiltrele(orijinalTatlar, "Çikolata");
 
 
 /* ALIŞTIRMA */
 
 /* ALIŞTIRMA 1: Bir dizideki ortalama kelime sayısını döndüren bir fonksiyon yazın. Bu işlevi orijinalTatlar dizisinde test etmelisiniz, ancak bunu herhangi bir dizi için de kullanabilmelisiniz.
-
+ 
 Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
    1. orijinalTatlar dizisini alın
    2. Dizideki öğe başına kaç kelime sayın
    3. Dizideki öğe başına ortalama kelime sayısını döndürün
-
+ 
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
 
-function ortalamaKelimeSayisi(){
-  
+function ortalamaKelimeSayisi(ortalamaDizi) {
+  const kelimeSayisiDizisi = [];
+
+  let kelimeToplami = 0;
+  console.log("Deniz AVG", ortalamaDizi.length);
+  for (let i = 0; i < ortalamaDizi.length; i++) {
+    let elimdekiKelimeGrubu = ortalamaDizi[i];
+    if (elimdekiKelimeGrubu.includes(" ")) {
+      kelimeSayisiDizisi.push(1);
+      kelimeToplami = kelimeToplami + 2;
+
+    } else {
+      kelimeSayisiDizisi.push(1);
+      kelimeToplami = kelimeToplami + 1;
+    }
+
   }
-  
-  
-  /*kod buraya*/
+  const ortKelime = kelimeToplami / ortalamaDizi.length;
+  console.log("Deniz AVG", kelimeSayisiDizisi);
+}
 
 
+/*kod buraya*/
+
+ortalamaKelimeSayisi(orijinalTatlar);
 
 /* ALIŞTIRMA 2:
 Firma mevcut tatların yanında artık mevsimlik lezzetler ve hatta bölgesel lezzetler de sunmaktadır. Toplam 25 lezzet aromasını
 orijinalTatlar, yeniTatlar, mevsimlikTatlar ve bolgeselTatlar'dan rastgele seçecek ve bunu rastgeleTatlar adlı bir dizide saklayan bir fonksiyon yazın.
-
+ 
 Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanın:
    1. Tüm farklı tatlara sahip dört diziyi alın (orijinalTatlar yukarıda, diğerleri aşağıda)
    2. Dört diziden rastgele tatlar seçin
    3. Uzunluğu 25 olan rastgeleTatlar adlı yeni bir dizi döndürün
-
+ 
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
 
 
-function rastgeleTatlar(/*kod buraya*/){
+function rastgeleTatlar(/*kod buraya*/) {
   /*kod buraya*/
 }
 
@@ -274,7 +290,7 @@ function rastgeleTatlar(/*kod buraya*/){
 
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
-function sa(){
+function sa() {
   console.log('Calışıyor');
   return 'as';
 }
@@ -291,4 +307,3 @@ module.exports = {
   ortalamaKelimeSayisi,
   rastgeleTatlar
 }
-
